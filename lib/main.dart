@@ -1,3 +1,4 @@
+import 'package:custom_paint/custom_designs/displayq.dart';
 import 'package:custom_paint/screens/custom_paint.dart';
 import 'package:custom_paint/screens/save_restore.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SaveAndRestore(),
+      home: Display1(),
     );
   }
 }

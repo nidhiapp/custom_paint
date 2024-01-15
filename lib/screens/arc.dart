@@ -47,15 +47,15 @@ class DrawArcPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
       ..strokeWidth = 2
-      ..style = PaintingStyle.stroke
+      ..style = PaintingStyle.fill
       ..color = Colors.black;
     Rect rect = Rect.fromCircle(
         center: Offset(size.width / 2, size.height / 2),
         radius: size.width / 2);
     Path path = Path()
-      ..moveTo(10, size.height/8 )
+      ..moveTo(10, size.height )
       ..relativeConicTo(
-          size.width/4, size.height, size.width, size.height / 2, 0.5);
+          size.width, size.height, size.width/2, size.height , 0.5);
     canvas.drawPath(path, paint);
     // Rect rect = Rect.fromCircle(
     //     center: Offset(size.width / 2, size.height / 2), radius: 100);
