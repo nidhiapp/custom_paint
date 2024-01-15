@@ -1,4 +1,4 @@
-import 'package:custom_paint/custom_paint_4.dart';
+import 'package:custom_paint/screens/custom_paint_4.dart';
 import 'package:flutter/material.dart';
 
 class CustomPaint3 extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:custom_paint/draw_point.dart';
+import 'package:custom_paint/screens/draw_point.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
@@ -75,7 +75,7 @@ class CustomPainterUserGuide extends CustomPainter {
     //canvas.drawColor(const Color.fromARGB(255, 214, 195, 201), BlendMode.src);
     canvas.clipRect(Offset.zero & size);
     canvas.drawPaint(paint);
-
+   
   }
 
   @override

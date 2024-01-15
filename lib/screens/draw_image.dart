@@ -1,4 +1,4 @@
-import 'package:custom_paint/write_text.dart';
+import 'package:custom_paint/screens/write_text.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
@@ -54,14 +54,17 @@ class _DrawImageState extends State<DrawImage>
                   size: Size(400, 300),
                 ),
                 TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => WriteTextOnCanvas()));
-                  },
-                  child: Container(height: 50,width: 150,color: Colors.amber,
-                    child: Center(child: Text("move to next"))))
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => WriteTextOnCanvas()));
+                    },
+                    child: Container(
+                        height: 50,
+                        width: 150,
+                        color: Colors.amber,
+                        child: Center(child: Text("move to next"))))
               ],
             ),
           ),
@@ -83,10 +86,46 @@ class ImagePainter extends CustomPainter {
       ..style = PaintingStyle.fill;
     ui.Image? image = imageInfoNotifier.value;
     if (image != null) {
-      Size imageSize = Size(image.width.toDouble(), image.height.toDouble());
-      Rect imageRect = Offset.zero & imageSize;
-      Rect canvasRect = Offset.zero & size;
-      canvas.drawImageRect(image,imageRect,canvasRect, paint);
+      List<RSTransform> transforms = [
+        RSTransform.fromComponents(
+            rotation: 0,
+            scale: 1.5,
+            anchorX: 10,
+            anchorY: 0,
+            translateX: 0,
+            translateY: 0),
+        RSTransform.fromComponents(
+            rotation: 0,
+            scale: 1,
+            anchorX: 0,
+            anchorY: 0,
+            translateX: 100,
+            translateY: 100),
+        RSTransform.fromComponents(
+            rotation: 0.3,
+            scale: 1,
+            anchorX: 0,
+            anchorY: 0,
+            translateX: 200,
+            translateY: 300)
+      ];
+      List<Rect> rects = [
+        Rect.fromLTWH(0, 0, 100, 100),
+        Rect.fromLTWH(100, 100, 100, 100),
+        Rect.fromLTWH(200, 300, 100, 100)
+      ];
+
+      List<Color> colors = [
+        Colors.white.withOpacity(0.2),
+        Colors.red.withOpacity(0.5),
+        Colors.blue.withOpacity(0.5)
+      ];
+
+      canvas.drawAtlas(image, transforms, rects, colors, BlendMode.plus, null, paint);
+      // Size imageSize = Size(image.width.toDouble(), image.height.toDouble());
+      // Rect imageRect = Offset.zero & imageSize;
+      // Rect canvasRect = Offset.zero & size;
+      // canvas.drawImageRect(image,imageRect,canvasRect, paint);
     }
   }
 

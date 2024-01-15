@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:custom_paint/draw_image.dart';
+import 'package:custom_paint/screens/draw_image.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 

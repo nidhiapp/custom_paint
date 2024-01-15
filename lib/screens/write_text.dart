@@ -1,3 +1,4 @@
+import 'package:custom_paint/screens/custom_clipper.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
 
@@ -40,15 +41,15 @@ class _WriteTextOnCanvasState extends State<WriteTextOnCanvas>
                   painter: ImagePainter(imageInfoNotifier: imageNotifier),
                   size: Size(400, 300),
                 ),
-                // TextButton(
-                //   onPressed: () {
-                //     Navigator.push(
-                //         context,
-                //         MaterialPageRoute(
-                //             builder: (context) => CustomPaint3()));
-                //   },
-                //   child: Container(height: 50,width: 150,color: Colors.amber,
-                //     child: Center(child: Text("move to next"))))
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CustomClippers()));
+                  },
+                  child: Container(height: 50,width: 150,color: Colors.amber,
+                    child: Center(child: Text("move to next"))))
               ],
             ),
           ),
