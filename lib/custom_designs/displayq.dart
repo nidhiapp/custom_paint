@@ -1,3 +1,5 @@
+import 'package:custom_paint/custom_designs/display2.dart';
+import 'package:custom_paint/custom_designs/display3.dart';
 import 'package:flutter/material.dart';
 
 class Display1 extends StatelessWidget {
@@ -8,29 +10,43 @@ class Display1 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red,
-        title: Text("NEW DESIGN"),
+        title: const Text("NEW DESIGN"),
       ),
-      body: Stack(
+      body: Column(
         children: [
-          Opacity(
-            opacity: 0.5,
-            child: ClipPath(
-              clipper: WaveClipper(),
-              child: Container(
-                color: Colors.deepOrangeAccent,
-                height: 200,
+          Stack(
+            children: [
+              Opacity(
+                opacity: 0.5,
+                child: ClipPath(
+                  clipper: WaveClipper(),
+                  child: Container(
+                    color: Colors.deepOrangeAccent,
+                    height: 200,
+                  ),
+                ),
               ),
-            ),
+              ClipPath(
+                clipper: WaveClipper(),
+                child: Container(
+                  color: const Color.fromARGB(102, 244, 67, 54),
+                  height: 180,
+                  alignment: Alignment.center,
+                  child: const Text(
+                    "Wave Clipper",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600, color: Colors.amber),
+                  ),
+                ),
+              )
+            ],
           ),
-           ClipPath(
-            clipper: WaveClipper(),
-             child: Container(
-               color: const Color.fromARGB(102, 244, 67, 54),
-               height: 180,
-               alignment: Alignment.center,
-               child: Text("waveclipper"),
-             ),
-           )
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CardListScreen()));
+              },
+              child: Text("move to next"))
         ],
       ),
     );
